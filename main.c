@@ -19,8 +19,45 @@ void squeeze(char s1[], char s2[]){
     s1[k]='\0';
 }
 
-void printDifWords(char sq, char W){
+void isDecMult(char text){
 
+}
+
+void printDifWords(char *sq, char *W){
+    int i=0;
+    int wlen=0;
+    char tmp[100];
+    while(W[wlen]){
+        wlen++;
+    }
+    while(sq[i]){
+        while(sq[i]&&(sq[i]==','||sq[i]==' '||sq[i]=='.')){
+            i++;
+        }
+        if(!sq[i]){
+            break;
+        }
+        int j=0;
+        while(sq[i]&&sq[i]!=','&&sq[i]!=' '&&sq[i]!='.'){
+            tmp[j++]=sq[i++];
+        }
+        tmp[j]='\0';
+        int sqlen=j;
+        int eq=(sqlen==wlen);
+        if(eq){
+            int k=0;
+            while(k<sqlen){
+                if(tmp[k]!=W[k]){
+                    eq=0;
+                    break;
+                }
+                k++;
+            }
+        }
+        if(!eq){
+            printf("%s ",tmp);
+        }
+    }
 }
 
 int main()
@@ -31,10 +68,11 @@ int main()
     squeeze(s1,s2);
     printf("%s\n",s1);
 
+    char text[]="1234";
 
-
-    char sq[]="aaa, bbb, ccc.";
+    char sq[]="aaa, bbb, bbbc, bbbb, bb.";
     char W[]="bbb";
+    printDifWords(sq,W);
 
     return 0;
 }
