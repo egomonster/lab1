@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void squeeze(char s1[], char s2[]){
+void squeeze(char *s1, char *s2){
     int i=0, k=0;
     while(s1[i]){
         int j=0;
@@ -27,7 +27,7 @@ int charToValue(char text){
     return text-'A'+10;
 }
 
-void isDecMult4(char text[], int base){
+void isDecMult4(char *text, int base){
     int len=0;
     while(text[len]!='\0'){
         len++;
@@ -92,7 +92,7 @@ int main()
     char s2[]="sdafe";
     squeeze(s1,s2);
 
-    char text[]="1A";
+    char text[]="1C";
     int base=16;
     isDecMult4(text,base);
 
